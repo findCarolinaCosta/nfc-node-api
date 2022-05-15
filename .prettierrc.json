@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "allowParens": "avoid",
+  "semi": false,
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "semi": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "nfc-node-api",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "repository": "git@github.com:findCarolinaCosta/nfc-node-api.git",
+  "author": "findcarolinacosta <carolinadacosta1997@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "dev": "ts-node-dev ./src/server.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.183",
+    "@swc/jest": "^0.2.21",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.33",
+    "@types/sequelize": "^4.28.13",
+    "jest": "^28.1.0",
+    "sequelize-cli": "^6.4.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  }
+}
