@@ -11,8 +11,8 @@ This application initially has only two route that returns the necessary data fo
 
 ## Features
 
-- GET '/account/nfc'
-- GET '/account/nfc/assignor'
+- GET '/account/nfc';
+- API documentation with swagger at '/docs' route;
 
 ## Tech Infos
 
@@ -73,3 +73,7 @@ I hope to have a positive feedback from him, but in any case, it's already part 
 
 ## Status report
 :waning_gibbous_moon: In progress
+
+## License
+
+MIT

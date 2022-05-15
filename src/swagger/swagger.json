@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "NFC Node API",
+    "description": "Node API developed as part of the Cashforce company's technical challenge",
+    "contact": {
+      "email": "carolinadacosta1997@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/account/nfc": {
+      "get": {
+        "summary": "Returns data of invoices",
+        "description": "Returns the information used in the project's invoices page",
+        "tags": ["account-nfc"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "$ref": "#/components/schema/Invoices"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schema": {
+      "Invoices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "emissionDate": {
+              "type": "string",
+              "pattern": "^[0-3][0-9]/[0-1][0-9]/[1-9][0-9][0-9][0-9]$",
+              "example": "16-05-2022"
+            },
+            "value": {
+              "type": "string"
+            },
+            "orderStatusBuyer": {
+              "type": "string"
+            },
+            "buyer": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "provider": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
