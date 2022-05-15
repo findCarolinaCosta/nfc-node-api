@@ -1,6 +1,8 @@
 import { Request, Response, Router, NextFunction } from 'express'
 import Order from './controllers/Invoice'
 import InvoiceService from './services/Invoice'
+import * as swaggerUi from 'swagger-ui-express'
+import * as swaggerDocs from './swagger/swagger.json'
 
 interface IOrder {
   id: number
@@ -27,12 +29,8 @@ export const routes = Router()
 const invoiceService = new InvoiceService()
 const Invoice: IInvoiceController = new Order(invoiceService)
 
-routes.get('/', (_req: Request, res: Response) => {
-  return res.json('Server up ✔')
-})
+routes.get('/', (_req: Request, res: Response) => res.redirect('/docs'))
 
-routes.get('/docs', (_req: Request, res: Response) => {
-  return res.json('Documentation not implemented yet!')
-})
+routes.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 routes.get('/account/nfc', Invoice.getAll)
