@@ -65,6 +65,19 @@ yarn start
 
 - Open any browser `http://HOST:PORT` (infos defined in `.env` file)
 
+Command for jest unit testing (with test coverage feedback):
+
+Use npm
+```
+npm test
+```
+
+Use yarn
+```
+yarn test
+```
+
+
 - Delete the .git folder to start with a new history.
 
 ## Project report
