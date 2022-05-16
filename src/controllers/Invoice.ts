@@ -4,13 +4,14 @@ interface IOrder {
   id: number
   emissionDate: string
   value: string
-  orderStatusBuyer: string
+  orderStatusBuyer: number
   provider?: {
     name: string
   }
   buyer?: {
     name: string
   }
+  nNf: string
 }
 
 interface IInvoiceService {
