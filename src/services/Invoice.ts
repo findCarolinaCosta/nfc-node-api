@@ -55,11 +55,12 @@ class InvoiceService implements IInvoiceService {
           attributes: { exclude: ['id', 'updatedAt', 'createdAt'] },
         },
       ],
-      raw: true,
     })
 
+    const orderString = JSON.stringify(orders)
+
     const newOrders: IOrderSerialized[] = await Promise.all(
-      orders.map((order) => serialize(order))
+      JSON.parse(orderString).map((order: any) => serialize(order))
     )
 
     return newOrders
