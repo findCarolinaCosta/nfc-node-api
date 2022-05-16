@@ -33,6 +33,44 @@ Make a git clone of the repository.
 git clone https://github.com/findCarolinaCosta/nfc-node-api.git
 ```
 
+### Create database, run migrations:
+
+Use npm:
+```
+npm run db:create
+```
+
+Use yarn:
+```
+yarn db:create
+```
+
+### Reset database ⚠ , it will drop the database and will use the original information:
+
+Use npm:
+```
+npm run db:reset
+```
+
+Use yarn:
+```
+yarn db:reset
+```
+
+### Command that populates database with dummy data:
+
+Use npm:
+```
+npm run db:seed
+```
+
+Use yarn:
+```
+yarn db:seed
+```
+
+⚠ History of migrations made from tables that are used in the project, database script available in [data.sql](https://github.com/findCarolinaCosta/nfc-node-api/blob/main/data.sql).
+
 ### Additional configuration
 - Create file `.env`;
 - Copy data below or data from `.env-example` file and paste into the `.env` file;
