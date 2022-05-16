@@ -10,6 +10,7 @@ interface IOrder {
   orderStatusBuyer: string
   buyerId: number
   providerId: number
+  nNf: string
 }
 
 class Order extends Model<IOrder> implements IOrder {
@@ -24,6 +25,8 @@ class Order extends Model<IOrder> implements IOrder {
   buyerId: number
 
   providerId: number
+
+  nNf: string
 }
 
 Order.init(
@@ -52,6 +55,10 @@ Order.init(
     },
     providerId: {
       type: DataTypes.INTEGER,
+      defaultValue: null,
+    },
+    nNf: {
+      type: DataTypes.STRING,
       defaultValue: null,
     },
   },

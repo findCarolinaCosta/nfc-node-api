@@ -1,6 +1,7 @@
 import Provider from '../database/models/Provider'
 import Buyer from '../database/models/Buyer'
 import Order from '../database/models/Order'
+import { serialize } from '../utils/serialize'
 
 interface IOrder {
   id: number
@@ -13,17 +14,32 @@ interface IOrder {
   buyer?: {
     name: string
   }
+  nNf: string
+}
+
+interface IOrderSerialized {
+  id: number
+  emissionDate: string
+  value: string
+  orderStatusBuyer: number
+  provider?: {
+    name: string
+  }
+  buyer?: {
+    name: string
+  }
+  nNf: string
 }
 
 interface IInvoiceService {
-  execute(): Promise<IOrder[]>
+  execute(): Promise<IOrderSerialized[]>
 }
 
 class InvoiceService implements IInvoiceService {
   constructor(private _model = Order) {}
 
-  public async execute(): Promise<IOrder[]> {
-    const orders: IOrder[] = await this._model.findAll({
+  public async execute(): Promise<IOrderSerialized[]> {
+    let orders: IOrder[] = await this._model.findAll({
       attributes: {
         exclude: ['buyerId', 'providerId', 'updatedAt', 'createdAt'],
       },
@@ -39,9 +55,14 @@ class InvoiceService implements IInvoiceService {
           attributes: { exclude: ['id', 'updatedAt', 'createdAt'] },
         },
       ],
+      raw: true,
     })
 
-    return orders
+    const newOrders: IOrderSerialized[] = await Promise.all(
+      orders.map((order) => serialize(order))
+    )
+
+    return newOrders
   }
 }
 
