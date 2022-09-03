@@ -1,12 +1,12 @@
 {
   "name": "nfc-node-api",
   "version": "1.0.0",
-  "main": "server.ts",
+  "main": "./src/server.ts",
   "repository": "git@github.com:findCarolinaCosta/nfc-node-api.git",
   "author": "findcarolinacosta <carolinadacosta1997@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node .",
+    "start": "ts-node ./src/server.ts",
     "dev": "ts-node-dev ./src/server.ts",
     "test": "jest",
     "db:create": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
